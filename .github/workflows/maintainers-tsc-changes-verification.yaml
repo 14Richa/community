@@ -52,7 +52,7 @@ jobs:
 
             // If the PR is made by the bot.
             if (author === 'asyncapi-bot') {
-              console.log('Changes made by asyncapi-bot')
+              core.info('Changes made by asyncapi-bot')
 
               const removedMaintainers = mainFile.filter(
                 (mainMaintainer) => !prFile.some((maintainer) => mainMaintainer.github === maintainer.github)
@@ -105,9 +105,9 @@ jobs:
               }
             }
             // Console log the error messages
-            console.log('Error messages:', errorMessages);
+            core.info('Error messages:', errorMessages);
             // Set the error messages as an output
-            console.log('Setting error messages output...');
+            core.info('Setting error messages output...');
             core.setOutput('errorMessages', JSON.stringify(errorMessages));
 
     outputs: 
